@@ -1,3 +1,5 @@
+import math
+
 #Say what you're going to do
 
 print ("\n" + "Welcome to Zombo.com!" + "\n" + "Wait, that's not right." + "\n" + "\n"
@@ -9,13 +11,6 @@ print ("\n" + "Welcome to Zombo.com!" + "\n" + "Wait, that's not right." + "\n" 
 
 single-speed
 
-    wants ratio
-        have front and back
-
-    has ratio
-        has front wants back
-        has back wants front
-
 multiple speed
 
     going to be a lot more work'''
@@ -26,15 +21,21 @@ print ("For now I can only help you with single speeds.")
 
 front = int ( input ("How many teeth are on the chainring? "))
 back = int ( input ("How many teeth are on the sprocket? "))
+wheel = int ( input ("What's the diameter of your rear wheel, in mm? "))
+crank = int ( input ("And what about your cranks? "))
 
 #Manipulate input
 
-ratio = front / back
-ratio = float(ratio)
+ratio = float (front / back)
+gear_inches = ratio * wheel / 25.4
+dev_meters = ratio * wheel / 1000 * math.pi
+
 
 #Return output
 
 print ("\n" + "Your wheel's going to rotate " + str(round(ratio,2)) + " times for every turn of your crank.")
+print ("That's " + str(round(gear_inches,1)) + "\" in gear-inches, if you're into that sort of thing.")
+print ("Or " + str(round(dev_meters,2)) + " meters of development.")
 
 if ratio<2.6:
     print ("Tell your grandkids I say hi!")
