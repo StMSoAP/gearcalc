@@ -37,7 +37,7 @@ while len(gearing_matrix) < total_sprockets:
     temp_ratio = []
     while len(temp_ratio) < total_chainrings:
         ratio = float(chainrings[len(temp_ratio)]) / float(sprockets[len(gearing_matrix)])
-        temp_ratio.append(round(ratio,2))
+        temp_ratio.append(ratio)
     gearing_matrix.append(temp_ratio)
 
 #Implement in a minute:        
@@ -52,7 +52,7 @@ while len(gearing_matrix) < total_sprockets:
 #print ("Or " + str(round(dev_meters,2)) + " meters of development.")
 #print ("Does anyone use Gain Ratio?  Yours is " + str(round(gain_ratio,2)) + ".")
 
-print('\n'.join([''.join(['{:5}'.format(item) for item in row]) 
+print('\n'.join([' '.join(['{:.2f}'.format(item) for item in row]) 
       for row in gearing_matrix]))
 
 #End or restart
